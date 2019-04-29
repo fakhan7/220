@@ -1,0 +1,17 @@
+Import-Module ActiveDirectory
+$CSV = $args[0]
+$csvlist = Import-Csv "$CSV"
+foreach ($user in $csvlist)
+ { $FirstName = $user.FirstName
+$LastName = $user.LastName
+$UserName = $user.Username
+$password = $user.Password
+$OUPath = $user.OUPath
+$Description = $user.Description
+$Action= $user.Action
+     if ($Action -like "Add")
+{New-ADUser -name $UserName -GivenName $FirstName -Surname $LastName -Description $Description -AccountPassword (ConvertTo-SecureString -AsPlainText $password -Force) -Path $OuPath}
+ elseif ($Action -like "Remove")
+ {Remove-ADUser -Identity $UserName}
+            }
+            
