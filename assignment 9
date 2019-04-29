@@ -1,0 +1,2 @@
+First i looked to see if LM_LICENSE_FILE existed.
+When I made sure it didnt exist i created it and added a value 27000@test.university.com to it
