@@ -1,0 +1,2 @@
+if ((Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment") -match "LM_LICENSE_FILE") {write-host "yes"} else {write-host "no"}
+New-ItemProperty –Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" –Name "LM_LICENSE_FILE" -Value "27000@test.university.com" -PropertyType "String" 
