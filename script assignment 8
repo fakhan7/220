@@ -1,0 +1,5 @@
+Get-ADComputer -Filter * -Properties *|select Name, Enabled, whenCreated, DistinguishedName
+Get-ADComputer -Identity 'PC01' -Properties *|select Name, Enabled, whenCreated, whenChanged, DistingishedName
+Get-ADComputer -Identity 'PC02' -Properties *|select Name, Enabled, whenCreated, whenChanged, DistingishedName
+Get-ADComputer -Filter * -Properties *|select Name, Enabled, whenCreated, DistinguishedName | Export-CSV ADcomputerlist.csv
+Get-ADComputer -Identity 'PC02' -Properties *|select Name, Enabled, whenCreated, DistingishedName | Export-CSV ADcomputerPC02
